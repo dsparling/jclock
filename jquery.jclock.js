@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 1.0.1
+ * jQuery jclock - Clock plugin - v 1.1.0
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2008 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '1.0.1';
+    var version = '1.1.0';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -75,6 +75,9 @@
 
     if (el.timeNotation == '12h') {
       hours = ((hours > 12) ? hours - 12 : hours);
+    } else if (el.timeNotation == '12hh') {
+      hours = ((hours > 12) ? hours - 12 : hours);
+      hours   = ((hours <  10) ? "0" : "") + hours;
     } else {
       hours   = ((hours <  10) ? "0" : "") + hours;
     }
@@ -83,7 +86,7 @@
     seconds = ((seconds <  10) ? "0" : "") + seconds;
 
     var timeNow = hours + ":" + minutes + ":" + seconds;
-    if ( (el.timeNotation == '12h') && (el.am_pm == true) ) {
+    if ( (el.timeNotation == '12h' || el.timeNotation == '12hh') && (el.am_pm == true) ) {
      timeNow += am_pm_text;
     }
 
