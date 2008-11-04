@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 1.1.0
+ * jQuery jclock - Clock plugin - v 1.2.0
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2008 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '1.1.0';
+    var version = '1.2.0';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -58,17 +58,15 @@
     var hours, minutes, seconds;
 
     if(el.utc == true) {
-      if(el.utc_offset != 0) {
-        now.setUTCHours(now.getUTCHours()+el.utc_offset);
-      }
-      hours = now.getUTCHours();
-      minutes = now.getUTCMinutes();
-      seconds = now.getUTCSeconds();
-    } else {
-      hours = now.getHours();
-      minutes = now.getMinutes();
-      seconds = now.getSeconds();
+      var localTime = now.getTime();
+      var localOffset = now.getTimezoneOffset() * 60000;
+      var utc = localTime + localOffset;
+      var utcTime = utc + (3600000 * el.utc_offset);
+      now = new Date(utcTime);
     }
+    hours = now.getHours();
+    minutes = now.getMinutes();
+    seconds = now.getSeconds();
 
     var am_pm_text = '';
     (hours >= 12) ? am_pm_text = " P.M." : am_pm_text = " A.M.";
