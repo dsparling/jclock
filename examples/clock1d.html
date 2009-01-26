@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>jclock - 12-hour clock with am/pm and style options (localtime)</title>
+
+  <script type="text/javascript" src="../jquery-1.3.1.min.js"></script>
+  <script type="text/javascript" src="../jquery.jclock.js"></script>
+
+  <script type="text/javascript">
+    $(function($) {
+      var options = {
+        format: '%I:%M:%S %p', // 12-hour with am/pm 
+        fontFamily: 'Verdana, Times New Roman',
+        fontSize: '20px',
+        foreground: 'yellow',
+        background: 'red'
+      }
+      $('.jclock').jclock(options);
+    });
+  </script>
+
+</head>
+
+<body>
+
+<div class="jclock"></div>
+
+</body>
+</html>

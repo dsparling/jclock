@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>jclock</title>
+
+  <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery.jclock.js"></script>
+
+  <script type="text/javascript">
+    $(function($) {
+      var optionsEST = {
+        utc: true,
+        utc_offset: -5
+      }
+      $('#jclock1').jclock(optionsEST);
+
+      var optionsCST = {
+        utc: true,
+        utc_offset: -6
+      }
+      $('#jclock2').jclock(optionsCST);
+
+      var optionsIndia = {
+        utc: true,
+        utc_offset: 5.5
+      }
+      $('#jclock3').jclock(optionsIndia);
+
+    });
+  </script>
+
+</head>
+
+<body>
+
+<p>EST: <span id="jclock1"></span></p>
+
+<p>CST: <span id="jclock2"></span></p>
+
+<p>India: <span id="jclock3"></span></p>
+
+</body>
+</html>
+
