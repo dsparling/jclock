@@ -1,13 +1,13 @@
-jQuery jClock Plugin 1.2.0
+jQuery jClock Plugin 2.0.1
 ==========================
 
 Homepage
 --------
-http://plugins.jquery.com/project/jclock
+http://plugins.jquery.com/project/jclock (out of date)
 
 Documentation
 -------------
-http://jquery.jclock.js.googlepages.com/jclock.html
+http://jquery.jclock.js.googlepages.com/jclock.html (out of date, see included examples)
 
 Author
 ------
@@ -26,7 +26,7 @@ Contributors
 Licensing
 ---------
  
-Copyright (c) Doug Sparling (http://www.dougsparling.com), 2007-2008.
+Copyright (c) Doug Sparling (http://www.dougsparling.com), 2007-2009.
  
 Dual-licensed under the BSD (BSD-LICENSE.txt) and GPL (GPL-LICENSE.txt)
 Licenses.
