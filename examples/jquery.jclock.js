@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 2.0.0
+ * jQuery jclock - Clock plugin - v 2.0.1
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2009 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '2.0.0';
+    var version = '2.0.1';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -31,6 +31,36 @@
         backgroundColor: o.background,
         color: o.foreground
       });
+
+      // %b
+      $this.monthsAbbrvNames = new Array(12);
+      $this.monthsAbbrvNames[0]  = "Jan";
+      $this.monthsAbbrvNames[1]  = "Feb";
+      $this.monthsAbbrvNames[2]  = "Mar";
+      $this.monthsAbbrvNames[3]  = "Apr";
+      $this.monthsAbbrvNames[4]  = "May";
+      $this.monthsAbbrvNames[5]  = "Jun";
+      $this.monthsAbbrvNames[6]  = "Jul";
+      $this.monthsAbbrvNames[7]  = "Aug";
+      $this.monthsAbbrvNames[8]  = "Sep";
+      $this.monthsAbbrvNames[9]  = "Oct";
+      $this.monthsAbbrvNames[10] = "Nov";
+      $this.monthsAbbrvNames[11] = "Dec";
+
+      // %B
+      $this.monthsFullNames = new Array(12);
+      $this.monthsFullNames[0]  = "January";
+      $this.monthsFullNames[1]  = "February";
+      $this.monthsFullNames[2]  = "March";
+      $this.monthsFullNames[3]  = "April";
+      $this.monthsFullNames[4]  = "May";
+      $this.monthsFullNames[5]  = "June";
+      $this.monthsFullNames[6]  = "July";
+      $this.monthsFullNames[7]  = "August";
+      $this.monthsFullNames[8]  = "September";
+      $this.monthsFullNames[9]  = "October";
+      $this.monthsFullNames[10] = "November";
+      $this.monthsFullNames[11] = "December";
 
       $.fn.jclock.startClock($this);
 
@@ -57,7 +87,6 @@
 
   $.fn.jclock.getTime = function(el) {
     var now = new Date();
-    var hours, minutes, seconds;
 
     if(el.utc == true) {
       var localTime = now.getTime();
@@ -78,7 +107,7 @@
       //switch (el.format.charAt(index++)) {
       //}
       
-      var property = $.fn.jclock.getProperty(now, el.format.charAt(index));
+      var property = $.fn.jclock.getProperty(now, el, el.format.charAt(index));
       index++;
       
       //switch (switchCase) {
@@ -92,9 +121,15 @@
     return timeNow;
   };
 
-  $.fn.jclock.getProperty = function(dateObject, property) {
+  $.fn.jclock.getProperty = function(dateObject, el, property) {
 
     switch (property) {
+      case "b": // abbrv month names
+          return (el.monthsAbbrvNames[dateObject.getMonth()]);
+      case "B": // full month names
+          return (el.monthsFullNames[dateObject.getMonth()]);
+      case "d": // day 01-31
+          return ((dateObject.getDay() <  10) ? "0" : "") + dateObject.getDay();
       case "H": // hour as a decimal number using a 24-hour clock (range 00 to 23)
           return ((dateObject.getHours() <  10) ? "0" : "") + dateObject.getHours();
       case "I": // hour as a decimal number using a 12-hour clock (range 01 to 12)
@@ -107,6 +142,10 @@
           return (dateObject.getHours() < 12 ? "am" : "pm");
       case "S": // second as a decimal number
           return ((dateObject.getSeconds() <  10) ? "0" : "") + dateObject.getSeconds();
+      case "y": // two-digit year
+          return ""; // TODO
+      case "Y": // full year
+        return (dateObject.getFullYear());
       case "%":
           return "%";
     }
