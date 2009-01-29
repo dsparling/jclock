@@ -1,16 +1,21 @@
 <html>
 <head>
-  <title>jclock - clocks with date</title>
+  <title>jclock - clocks with dates</title>
 
   <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
   <script type="text/javascript" src="jquery.jclock.js"></script>
 
   <script type="text/javascript">
     $(function($) {
-      var options = {
-        format: '%B %d, %Y %I:%M:%S %p', // 12-hour
+      var options1 = {
+        format: '%A %B %d, %Y %I:%M:%S %p' // 12-hour
       }
-      $('.jclock').jclock(options);
+      $('#jclock1').jclock(options1);
+
+      var options2 = {
+        format: '%a %b %d, %Y %H:%M:%S' // 24-hour
+      }
+      $('#jclock2').jclock(options2);
     });
   </script>
 
@@ -18,7 +23,8 @@
 
 <body>
 
-<span class="jclock"></span>
+<p><span id="jclock1"></span></p>
+<p><span id="jclock2"></span></p>
 
 </body>
 </html>

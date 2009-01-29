@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 2.0.1
+ * jQuery jclock - Clock plugin - v 2.0.2
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2009 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '2.0.1';
+    var version = '2.0.2';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -31,6 +31,26 @@
         backgroundColor: o.background,
         color: o.foreground
       });
+
+      // %a
+      $this.daysAbbrvNames = new Array(7);
+      $this.daysAbbrvNames[0]  = "Sun";
+      $this.daysAbbrvNames[1]  = "Mon";
+      $this.daysAbbrvNames[2]  = "Tue";
+      $this.daysAbbrvNames[3]  = "Wed";
+      $this.daysAbbrvNames[4]  = "Thu";
+      $this.daysAbbrvNames[5]  = "Fri";
+      $this.daysAbbrvNames[6]  = "Sat";
+
+      // %A
+      $this.daysFullNames = new Array(7);
+      $this.daysFullNames[0]  = "Sunday";
+      $this.daysFullNames[1]  = "Monday";
+      $this.daysFullNames[2]  = "Tuesday";
+      $this.daysFullNames[3]  = "Wednesday";
+      $this.daysFullNames[4]  = "Thursday";
+      $this.daysFullNames[5]  = "Friday";
+      $this.daysFullNames[6]  = "Saturday";
 
       // %b
       $this.monthsAbbrvNames = new Array(12);
@@ -124,6 +144,10 @@
   $.fn.jclock.getProperty = function(dateObject, el, property) {
 
     switch (property) {
+      case "a": // abbrv day names
+          return (el.daysAbbrvNames[dateObject.getDay()]);
+      case "A": // full day names
+          return (el.daysFullNames[dateObject.getDay()]);
       case "b": // abbrv month names
           return (el.monthsAbbrvNames[dateObject.getMonth()]);
       case "B": // full month names
