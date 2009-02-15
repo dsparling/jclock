@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 2.1.0
+ * jQuery jclock - Clock plugin - v 2.1.1
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2009 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '2.1.0';
+    var version = '2.1.1';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -157,8 +157,8 @@
       case "H": // hour as a decimal number using a 24-hour clock (range 00 to 23)
           return ((dateObject.getHours() <  10) ? "0" : "") + dateObject.getHours();
       case "I": // hour as a decimal number using a 12-hour clock (range 01 to 12)
-          //return ( ((dateObject.getHours() % 12 || 12) < 10) ? "0" : "") + dateObject.getHours();
-          return (dateObject.getHours() % 12 || 12);
+          var hours = (dateObject.getHours() % 12 || 12);
+          return ((hours <  10) ? "0" : "") + hours;
       case "M": // minute as a decimal number
           return ((dateObject.getMinutes() <  10) ? "0" : "") + dateObject.getMinutes();
       case "p": // either `am' or `pm' according to the given time value,
