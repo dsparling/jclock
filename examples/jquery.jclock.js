@@ -1,5 +1,5 @@
 /*
- * jQuery jclock - Clock plugin - v 2.0.2
+ * jQuery jclock - Clock plugin - v 2.1.0
  * http://plugins.jquery.com/project/jclock
  *
  * Copyright (c) 2007-2009 Doug Sparling <http://www.dougsparling.com>
@@ -9,7 +9,7 @@
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '2.0.2';
+    var version = '2.1.0';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
@@ -153,7 +153,7 @@
       case "B": // full month names
           return (el.monthsFullNames[dateObject.getMonth()]);
       case "d": // day 01-31
-          return ((dateObject.getDay() <  10) ? "0" : "") + dateObject.getDay();
+          return ((dateObject.getDate() <  10) ? "0" : "") + dateObject.getDate();
       case "H": // hour as a decimal number using a 24-hour clock (range 00 to 23)
           return ((dateObject.getHours() <  10) ? "0" : "") + dateObject.getHours();
       case "I": // hour as a decimal number using a 12-hour clock (range 01 to 12)
