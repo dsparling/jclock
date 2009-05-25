@@ -1,4 +1,4 @@
-jQuery jClock Plugin 2.1.1
+jQuery jClock Plugin 2.2.0
 ==========================
 
 Homepage
@@ -22,6 +22,9 @@ at http://github.com/dsparling/jclock
  
 Contributors
 ------------
+J5 (http://github.com/J5): timeout (v 2.2.0)
+jsanders (http://github.com/jsanders/): seedTime (v 2.2.0) 
+perldork (http://github.com/perldork): %m, %y (v 2.2.0)
  
 Licensing
 ---------

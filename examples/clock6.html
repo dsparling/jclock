@@ -16,6 +16,22 @@
         format: '%a %b %d, %Y %H:%M:%S' // 24-hour
       }
       $('#jclock2').jclock(options2);
+
+      var options3 = {
+        format: '%Y-%m-%d %H:%M:%S' // 24-hour
+      }
+      $('#jclock3').jclock(options3);
+
+      var options4 = {
+        format: '%Y-%m-%d'
+      }
+      $('#jclock4').jclock(options4);
+
+      var options5 = {
+        format: '%m/%d/%y'
+      }
+      $('#jclock5').jclock(options5);
+
     });
   </script>
 
@@ -25,6 +41,9 @@
 
 <p><span id="jclock1"></span></p>
 <p><span id="jclock2"></span></p>
+<p><span id="jclock3"></span></p>
+<p><span id="jclock4"></span></p>
+<p><span id="jclock5"></span></p>
 
 </body>
 </html>
