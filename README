@@ -25,6 +25,7 @@ Contributors
 J5 (http://github.com/J5): timeout (v 2.2.0)
 jsanders (http://github.com/jsanders/): seedTime (v 2.2.0) 
 perldork (http://github.com/perldork): %m, %y (v 2.2.0)
+Itamar M <itamarm AT gmail.com>: noticed '+1' missing from dateObject.getMonth()+1 (2.3.0)
  
 Licensing
 ---------
