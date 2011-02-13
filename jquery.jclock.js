@@ -107,12 +107,14 @@
   }
  
   $.fn.jclock.displayTime = function(el) {
-    var time = $.fn.jclock.getTime(el);
-    el.html(time);
+    var time = $.fn.jclock.currentTime(el);
+    var formatted_time = $.fn.jclock.formatTime(time, el);
+    el.attr('currentTime', time.getTime())
+    el.html(formatted_time);
     el.timerID = setTimeout(function(){$.fn.jclock.displayTime(el)},el.timeout);
   }
- 
-  $.fn.jclock.getTime = function(el) {
+
+  $.fn.jclock.currentTime = function(el) {
     if(typeof(el.seedTime) == 'undefined') {
       // Seed time not being used, use current time
       var now = new Date();
@@ -128,8 +130,13 @@
       var localOffset = now.getTimezoneOffset() * 60000;
       var utc = localTime + localOffset;
       var utcTime = utc + (3600000 * el.utcOffset);
-      now = new Date(utcTime);
+      var now = new Date(utcTime);
     }
+
+    return now
+  }
+ 
+  $.fn.jclock.formatTime = function(time, el) {
  
     var timeNow = "";
     var i = 0;
@@ -142,7 +149,7 @@
       //switch (el.format.charAt(index++)) {
       //}
       
-      var property = $.fn.jclock.getProperty(now, el, el.format.charAt(index));
+      var property = $.fn.jclock.getProperty(time, el, el.format.charAt(index));
       index++;
       
       //switch (switchCase) {
