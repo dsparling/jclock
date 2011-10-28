@@ -11,35 +11,35 @@ http://jquery.jclock.js.googlepages.com/jclock.html (out of date, see included e
 
 Author
 ------
- 
+
 This plugin was written by and is maintained by Doug Sparling. Please
 do not hesitate to contact me with comments and bug reports through the
 plugin's official entry on the jQuery Plugins directory:
 http://plugins.jquery.com/project/jclock
- 
+
 You can view the latest source code (and fork the entire project if you wish)
 at http://github.com/dsparling/jclock
- 
+
 Contributors
 ------------
 J5 (http://github.com/J5): timeout (v 2.2.0)
-jsanders (http://github.com/jsanders/): seedTime (v 2.2.0) 
+jsanders (http://github.com/jsanders/): seedTime (v 2.2.0)
 perldork (http://github.com/perldork): %m, %y (v 2.2.0)
 Itamar M <itamarm AT gmail.com>: noticed '+1' missing from dateObject.getMonth()+1 (2.3.0)
- 
+
 Licensing
 ---------
- 
+
 Copyright (c) Doug Sparling (http://www.dougsparling.com), 2007-2009.
- 
+
 Dual-licensed under the BSD (BSD-LICENSE.txt) and GPL (GPL-LICENSE.txt)
 Licenses.
- 
+
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
 (at your option) any later version.
- 
+
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the

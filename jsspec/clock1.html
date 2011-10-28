@@ -25,16 +25,16 @@
       testTime = curHour + ":" + curMinute + ":" + curSecond
     },
     'should match regex': function() {
-      var clock = (document.getElementById('clock1')).innerHTML 
+      var clock = (document.getElementById('clock1')).innerHTML
       value_of(clock).should_match(/\d{2}:\d{2}:\d{2}/);
     },
     'should match time': function() {
-      var clock = (document.getElementById('clock1')).innerHTML 
+      var clock = (document.getElementById('clock1')).innerHTML
       // Need to add a time window since seconds may not match
       value_of(clock).should_be(testTime);
     }
   })
-</script> 
+</script>
 
 </head>
 
