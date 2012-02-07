@@ -106,12 +106,23 @@
     el.running = false;
   }
  
+  /* if the frequency is "once every minute" then we have to make sure this happens
+   * when the minute changes. */  
+  // got this idea from digiclock http://www.radoslavdimov.com/jquery-plugins/jquery-plugin-digiclock/
+  function getDelay(timeout) {
+	  if (timeout == 60000) {
+		  var now = new Date();
+		  timeout = 60000 - now.getSeconds() * 1000; // number of seconds before the next minute
+	  }
+	  return timeout;
+  }
+  
   $.fn.jclock.displayTime = function(el) {
     var time = $.fn.jclock.currentTime(el);
     var formatted_time = $.fn.jclock.formatTime(time, el);
     el.attr('currentTime', time.getTime())
     el.html(formatted_time);
-    el.timerID = setTimeout(function(){$.fn.jclock.displayTime(el)},el.timeout);
+    el.timerID = setTimeout(function(){$.fn.jclock.displayTime(el)}, getDelay(el.timeout));
   }
 
   $.fn.jclock.currentTime = function(el) {

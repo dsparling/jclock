@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>jclock - default 24-hour clock (localtime)</title>
+
+  <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery.jclock.js"></script>
+
+  <script type="text/javascript">
+    $(function($) {
+      $('.jclock').jclock({
+		  timeout: 60000,
+	      format: '%H:%M',
+	  });
+    });
+  </script>
+
+</head>
+
+<body>
+
+<div class="jclock"></div>
+
+</body>
+</html>
