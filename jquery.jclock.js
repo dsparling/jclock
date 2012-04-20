@@ -1,16 +1,19 @@
-/*
-* jQuery jclock - Clock plugin - v 2.3.2
-* http://plugins.jquery.com/project/jclock
-*
-* Copyright (c) 2007-2011 Doug Sparling <http://www.dougsparling.com>
-* Licensed under the MIT License:
-* http://www.opensource.org/licenses/mit-license.php
-*/
+/**
+ * jQuery jclock - Clock plugin - v 2.3.2
+ * http://plugins.jquery.com/project/jclock
+ *
+ * Copyright (c) 2007-2011 Doug Sparling <http://www.dougsparling.com>
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 (function($) {
- 
-  $.fn.jclock = function(options) {
-    var version = '2.3.2';
- 
+  var version = '2.3.2',
+      methods = {
+   /**
+    * Initializes the clock
+    */
+   init : function( options ) { 
+   
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
          
@@ -91,7 +94,61 @@
  
       $.fn.jclock.startClock($this);
  
+      $this.data('clock', $this);
     });
+        
+   },
+   /**
+    * Dynamically change the seedTime
+    */   
+   setSeedTime : function( seedTime ) { 
+    return this.each(function(){
+        var $this = $(this).data('clock');
+        if ($this != null) {        
+            $this.seedTime = seedTime;
+            
+            // Reset variables used for record keeping
+            $this.increment = 0;
+            $this.lastCalled = new Date().getTime();            
+        }
+    });
+   },   
+   /**
+    * Start the clock's timer if it has been stopped
+    */
+   startClock: function( ) {  
+    return this.each(function(){
+        var $this = $(this).data('clock');
+        if ($this != null) {      
+            $.fn.jclock.startClock($this);
+        }
+    });
+   },
+   /**
+    * Stop the clock's timer, for example in 
+    * preparation to destroy the clock instance.
+    */
+   stopClock: function( ) {  
+    return this.each(function(){
+        var $this = $(this).data('clock');
+        if ($this != null) {      
+            clearTimeout($this.timerID);
+        }
+    });
+   }
+  };
+ 
+  $.fn.jclock = function( method ) {
+    
+    // Method calling logic
+    if ( methods[method] ) {
+      return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.jclock' );
+    }    
+  
   };
        
   $.fn.jclock.startClock = function(el) {
@@ -126,13 +183,15 @@
   }
 
   $.fn.jclock.currentTime = function(el) {
+    var now;
+    
     if(typeof(el.seedTime) == 'undefined') {
       // Seed time not being used, use current time
-      var now = new Date();
+      now = new Date();
     } else {
       // Otherwise, use seed time with increment
       el.increment += new Date().getTime() - el.lastCalled;
-      var now = new Date(el.seedTime + el.increment);
+      now = new Date(el.seedTime + el.increment);
       el.lastCalled = new Date().getTime();
     }
  
@@ -141,7 +200,7 @@
       var localOffset = now.getTimezoneOffset() * 60000;
       var utc = localTime + localOffset;
       var utcTime = utc + (3600000 * el.utcOffset);
-      var now = new Date(utcTime);
+      now = new Date(utcTime);
     }
 
     return now
@@ -231,3 +290,4 @@
   };
  
 })(jQuery);
+
