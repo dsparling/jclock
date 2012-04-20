@@ -9,7 +9,8 @@
   <script type="text/javascript">
     $(function($) {
       var options = {
-        format: '%I:%M:%S' // 12-hour
+        format: '%I:%M:%S', // 12-hour
+        timeout: 500
       }
       $('.jclock').jclock(options);
       $('#set-button').click(function(){
@@ -34,7 +35,7 @@
         <label class="time-label">Minutes:</label> <br />
         <input type="text" id="mins" value="59" size="4" /> <br />
         <label class="time-label">Seconds:</label> <br />
-        <input type="text" id="secs" value="59" size="4" /> <br />
+        <input type="text" id="secs" value="50" size="4" /> <br />
         <br />
         <button id="set-button">Set Time</button>
 </div>
