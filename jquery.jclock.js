@@ -114,6 +114,17 @@
     });
    },   
    /**
+    * Start the clock's timer if it has been stopped
+    */
+   startClock: function( ) {  
+    return this.each(function(){
+        var $this = $(this).data('clock');
+        if ($this != null) {      
+            $.fn.jclock.startClock($this);
+        }
+    });
+   },
+   /**
     * Stop the clock's timer, for example in 
     * preparation to destroy the clock instance.
     */
@@ -279,3 +290,4 @@
   };
  
 })(jQuery);
+
