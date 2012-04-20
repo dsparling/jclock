@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>jclock - start and stop</title>
+
+  <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+  <script type="text/javascript" src="../jquery.jclock.js"></script>
+
+  <script type="text/javascript">
+    $(function($) {
+      var options = {
+        format: '%I:%M:%S', // 12-hour
+      }
+      $('.jclock').jclock(options);
+      $('#start-button').click(function(){
+          $('.jclock').jclock('startClock');
+      });
+      $('#stop-button').click(function(){
+          $('.jclock').jclock('stopClock');
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+<div class="jclock"></div>
+<div><button id="start-button">Start</button></div>
+<div><button id="stop-button">Stop</button></div>
+
+</body>
+</html>
