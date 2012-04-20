@@ -13,9 +13,13 @@
       $('.jclock').jclock(options);
       $('#start-button').click(function(){
           $('.jclock').jclock('startClock');
+          $('#stop-button').removeAttr('disabled');
+          $('#start-button').attr('disabled', 'disabled');
       });
       $('#stop-button').click(function(){
           $('.jclock').jclock('stopClock');
+          $('#start-button').removeAttr('disabled');
+          $('#stop-button').attr('disabled', 'disabled');
       });
     });
   </script>
@@ -25,7 +29,7 @@
 <body>
 
 <div class="jclock"></div>
-<div><button id="start-button">Start</button></div>
+<div><button id="start-button" disabled="disabled">Start</button></div>
 <div><button id="stop-button">Stop</button></div>
 
 </body>
