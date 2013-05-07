@@ -2,19 +2,19 @@
 <head>
   <title>jclock - multiple clocks using different time zone offsets</title>
 
-  <script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+  <script type="text/javascript" src="jquery-1.4.3.min.js"></script>
   <script type="text/javascript" src="jquery.jclock.js"></script>
 
   <script type="text/javascript">
     $(function($) {
 
       $('.time').each(function() {
-
+			var myUtc = $(this).data('utc');
+	        var myUtcOffset =$(this).data('utc-offset');
           $(this).jclock({
-            utc: $(this).attr('data-utc'),
-            utcOffset: $(this).attr('data-utc-offset')
+            utc: myUtc ,
+            utcOffset: myUtcOffset
           })
-          
       })
 
     });
@@ -25,6 +25,7 @@
 <body>
 <h1>Using data attributes to specify options</h1>
 <p>This example shows how to specify the values as attributes in HTML using HTML5 data- attributes as opposed to specifying them in the javascript code.</p>
+<p><b>Note: You need jQuery 1.4.3 or greater for this to work.</b></p>
 
 <p>EST: <span class="time" data-utc="true" data-utc-offset="-5"></span></p>
 
