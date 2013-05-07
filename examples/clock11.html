@@ -9,14 +9,16 @@
     $(function($) {
 
       $('.time').each(function() {
+      
 			var myUtc = $(this).data('utc');
 	        var myUtcOffset =$(this).data('utc-offset');
+	        
           $(this).jclock({
             utc: myUtc ,
             utcOffset: myUtcOffset
           })
+          
       })
-
     });
   </script>
 
@@ -31,7 +33,7 @@
 
 <p>Puerto Rico: <span class="time" data-utc="true" data-utc-offset="-4"></span></p>
 
-<p>Brazil: <span class="time" data-utc="true" data-utc-offset="-1"></span></p>
+<p>Brazil: <span class="time" data-utc="true" data-utc-offset="-3"></span></p>
 
 </body>
 </html>
