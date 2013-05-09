@@ -1,4 +1,4 @@
-jQuery jClock Plugin 2.3.2
+jQuery jClock Plugin 2.4.0
 ==========================
 
 Homepage
@@ -26,11 +26,13 @@ J5 (http://github.com/J5): timeout (v 2.2.0)
 jsanders (http://github.com/jsanders/): seedTime (v 2.2.0) 
 perldork (http://github.com/perldork): %m, %y (v 2.2.0)
 Itamar M <itamarm AT gmail.com>: noticed '+1' missing from dateObject.getMonth()+1 (2.3.0)
- 
+jorluiseptor: Added example using data attributes to specify function options (2.4.0)
+justinethier: Dynamicallly update a clock (2.4.0)
+
 Licensing
 ---------
  
-Copyright (c) Doug Sparling (http://www.dougsparling.com), 2007-2009.
+Copyright (c) Doug Sparling (http://www.dougsparling.com), 2007-2013.
  
 Dual-licensed under the BSD (BSD-LICENSE.txt) and GPL (GPL-LICENSE.txt)
 Licenses.
