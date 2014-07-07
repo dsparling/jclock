@@ -1,14 +1,14 @@
 <html>
 <head>
-  <title>jclock - 12-hour clock with am/pm (localtime)</title>
+  <title>jclock - default 24-hour clock (utc)</title>
 
-  <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="../jquery.jclock.js"></script>
 
   <script type="text/javascript">
     $(function($) {
       var options = {
-        format: '%I:%M:%S %p', // 12-hour with am/pm 
+        utc: true
       }
       $('.jclock').jclock(options);
     });
@@ -18,7 +18,7 @@
 
 <body>
 
-<div class="jclock"></div>
+<span class="jclock"></span> UTC
 
 </body>
 </html>

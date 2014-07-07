@@ -1,14 +1,15 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>jclock - 12-hour clock (localtime)</title>
+  <title>jclock - 12-hour clock (localtime/format: '%l:%M:%S')</title>
 
-  <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="../jquery.jclock.js"></script>
 
   <script type="text/javascript">
     $(function($) {
       var options = {
-        format: '%I:%M:%S', // 12-hour
+        format: '%l:%M:%S', // 12-hour
       }
       $('.jclock').jclock(options);
     });

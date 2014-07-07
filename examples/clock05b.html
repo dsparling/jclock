@@ -20,7 +20,7 @@
     }
   </style>
 
-  <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="../jquery.jclock.js"></script>
   <script type="text/javascript" src="jquery.corner.js"></script>
 
@@ -36,8 +36,8 @@
         background: 'red'
       }
       $('.jclock').jclock(options);
-
-      $('.corner').corner("30px");
+      // see http://jquery.malsup.com/corner/ for options
+      $('.corner').corner();
 
     });
   </script>

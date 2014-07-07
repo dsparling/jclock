@@ -1,15 +1,15 @@
 /*
-* jQuery jclock - Clock plugin - v 2.4.2
+* jQuery jclock - Clock plugin - v 2.4.3
 * http://plugins.jquery.com/project/jclock
 *
-* Copyright (c) 2007-2013 Doug Sparling <http://www.dougsparling.com>
+* Copyright (c) 2007-2014 Doug Sparling <http://www.dougsparling.com>
 * Licensed under the MIT License:
 * http://www.opensource.org/licenses/mit-license.php
 */
 (function($) {
 
   $.fn.jclock = function(options) {
-    var version = '2.4.2';
+    var version = '2.4.3';
 
     // options
     var opts = $.extend({}, $.fn.jclock.defaults, options);
