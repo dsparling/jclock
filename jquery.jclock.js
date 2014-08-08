@@ -97,14 +97,13 @@
   $.fn.jclock.startClock = function(el) {
     $.fn.jclock.stopClock(el);
     $.fn.jclock.displayTime(el);
-  }
+  };
 
   $.fn.jclock.stopClock = function(el) {
-    if(el.running) {
+    if(el.running)
       clearTimeout(el.timerID);
-    }
     el.running = false;
-  }
+  };
 
   /* if the frequency is "once every minute" then we have to make sure this happens
    * when the minute changes. */
@@ -120,10 +119,10 @@
   $.fn.jclock.displayTime = function(el) {
     var time = $.fn.jclock.currentTime(el);
     var formatted_time = $.fn.jclock.formatTime(time, el);
-    el.attr('currentTime', time.getTime())
+    el.attr('currentTime', time.getTime());
     el.html(formatted_time);
     el.timerID = setTimeout(function(){$.fn.jclock.displayTime(el)}, getDelay(el.timeout));
-  }
+  };
 
   $.fn.jclock.currentTime = function(el) {
     if(typeof(el.seedTime) == 'undefined') {
@@ -144,8 +143,8 @@
       var now = new Date(utcTime);
     }
 
-    return now
-  }
+    return now;
+  };
 
   $.fn.jclock.formatTime = function(time, el) {
 
@@ -167,7 +166,7 @@
       //}
 
       timeNow += property;
-      i = index
+      i = index;
     }
 
     timeNow += el.format.substring(i);
@@ -215,7 +214,7 @@
           return "%";
     }
 
-  }
+  };
 
   // plugin defaults (24-hour)
   $.fn.jclock.defaults = {
